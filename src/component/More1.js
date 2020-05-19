@@ -17,11 +17,11 @@ class More1 extends Component {
     componentDidMount() {
         Axios.get('https://api.covid19india.org/data.json')
         .then(response => {
-            //console.log(response)
+            ////console.log(response)
             this.setState({posts:response.data.statewise})
         })
         .catch(error => {
-            //console.log(error)
+            ////console.log(error)
         })
 
         Axios.get('https://api.covid19india.org/state_test_data.json')
@@ -71,7 +71,7 @@ class More1 extends Component {
             }
         }
         this.setState({posts:stdata})
-        console.log(stdata)
+        //console.log(stdata)
         var states=[]
         var info1=[]
         var info2=[]
@@ -81,20 +81,20 @@ class More1 extends Component {
           if(stdata[i].state!="State Unassigned"){
             states[i-1]=stdata[i].state
             info1[i-1]=stdata[i].totaltested
-            console.log(stdata[i].state)
+            //console.log(stdata[i].state)
             info2[i-1]=stdata[i].testsperthousand
-            console.log(info2[i-1])
+            //console.log(info2[i-1])
             info3[i-1]=stdata[i].testpositivityrate
             info3[i-1].replace('%','')
             info3[i-1]=parseFloat(info3[i-1])
-            console.log(info3[i-1])
+            //console.log(info3[i-1])
           }
         }
 
-        console.log(states)
-        console.log(info1)
-        console.log(info2)
-        console.log(info3)
+        //console.log(states)
+        //console.log(info1)
+        //console.log(info2)
+        //console.log(info3)
         this.setState({
             chartData:{
                 labels: states,
@@ -149,7 +149,7 @@ class More1 extends Component {
           })
         })
         .catch(error => {
-            //console.log(error)
+            ////console.log(error)
         })
     }
     static defaultProps = {

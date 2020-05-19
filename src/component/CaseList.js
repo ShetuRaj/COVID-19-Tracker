@@ -31,14 +31,14 @@ class CaseList extends Component {
 
         Axios.get('https://api.covid19india.org/data.json')
         .then(response => {
-            //console.log(response)
+            ////console.log(response)
             this.setState({posts:response.data.statewise})
             const extra=response.data.cases_time_series
             
-            // console.log(new1)
+            // //console.log(new1)
             var extra1=response.data.statewise
 
-            // console.log(new2-new1)
+            // //console.log(new2-new1)
             var recov=0,dead=0;
             var new3=extra1[0].confirmed-extra[extra.length-1].totalconfirmed
             if(new3<=100)
@@ -58,17 +58,17 @@ class CaseList extends Component {
             this.setState({recov:recov})
             this.setState({dead:dead})
             
-            //console.log(response.data.statewise)
+            ////console.log(response.data.statewise)
             const total = response.data.tested
             var samples=total[total.length-1].totalsamplestested-total[total.length-2].totalsamplestested
             this.setState({samples:samples})
             var len=total.length
             var tested=total[len-1].totalsamplestested
             this.setState({num:tested})            
-            //console.log(total[len-1].totalsamplestested)
+            ////console.log(total[len-1].totalsamplestested)
         })
         .catch(error => {
-            //console.log(error)
+            ////console.log(error)
         })
 
         Axios.get('https://api.covid19india.org/states_daily.json')
@@ -76,12 +76,12 @@ class CaseList extends Component {
     .then(response => {
         const stdata=this.state.posts
         this.setState({postings:response.data.states_daily})
-        console.log(response.data.states_daily)
+        //console.log(response.data.states_daily)
         const postings = response.data.states_daily
-        console.log(postings)
+        //console.log(postings)
         
         const daily=postings[postings.length-3];
-        console.log(daily)
+        //console.log(daily)
         var sortable = [];
         for (var vehicle in daily) {
             sortable.push([vehicle, daily[vehicle]]);
@@ -91,15 +91,15 @@ class CaseList extends Component {
         sortable.sort(function(a, b) {
         return a[1] - b[1];
         });
-        console.log(sortable)
+        //console.log(sortable)
         var increase=[]
         var z=0;
         for(var i=1;i<stdata.length;i++)
         {
-            console.log(stdata[i].statecode)
+            //console.log(stdata[i].statecode)
            for(var j=0;j<sortable.length;j++)
            {
-                // console.log(daily[j])
+                // //console.log(daily[j])
                 if(daily[j]!="tt")
                 {
                     
@@ -112,7 +112,7 @@ class CaseList extends Component {
            }
            
         }
-        console.log(increase)
+        //console.log(increase)
         this.setState({increase:increase})
         const add=this.state.posts
         var j=0;
@@ -123,7 +123,7 @@ class CaseList extends Component {
         this.setState({posts:add})
     })
     .catch(error => {
-        //console.log(error)
+        ////console.log(error)
     })
     Axios.get('https://api.covid19india.org/state_test_data.json')
     .then(response => {
@@ -172,11 +172,11 @@ class CaseList extends Component {
             }
         }
         this.setState({posts:stdata})
-        console.log(stdata)
+        //console.log(stdata)
         
     })
     .catch(error => {
-        //console.log(error)
+        ////console.log(error)
     })
 
 
@@ -186,9 +186,9 @@ class CaseList extends Component {
 
     render() {
         const increase = this.state.increase
-        console.log(increase)
+        //console.log(increase)
         const posts = this.state.posts
-        console.log(posts)
+        //console.log(posts)
         var new1=this.state.new1
         var recov=this.state.recov
         var dead=this.state.dead
@@ -197,13 +197,13 @@ class CaseList extends Component {
         var num=[]
         var total=0
         for (var i=1;i<posts.length;i+=1) {
-          //console.log(posts[i].state);
+          ////console.log(posts[i].state);
           states[i-1]=posts[i].state
           num[i-1]=posts[i].confirmed
           total=total+parseInt(posts[i].confirmed)
           
       }
-      //console.log(total)
+      ////console.log(total)
       var tested=this.state.num
        var percent=((total/tested)*100)
        var thousand=(tested/(1.4*1000000))
@@ -211,10 +211,10 @@ class CaseList extends Component {
         {
             percent=0
         }
-      //console.log(percent)
-      //console.log(tested)
-        //console.log({states})
-        //console.log({num})
+      ////console.log(percent)
+      ////console.log(tested)
+        ////console.log({states})
+        ////console.log({num})
         return (
             <div>
                

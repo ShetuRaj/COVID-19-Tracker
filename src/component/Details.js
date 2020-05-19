@@ -25,13 +25,13 @@ class Details extends Component{
   componentDidMount() {
     Axios.get('https://api.covid19india.org/data.json')
     .then(response => {
-        //console.log(response)
+        ////console.log(response)
         this.setState({posts:response.data.cases_time_series})
-        //console.log(response.data.cases_time_series)
+        ////console.log(response.data.cases_time_series)
         
         
         const posts = response.data.cases_time_series
-        //console.log(posts)
+        ////console.log(posts)
         var states=[]
         
         var confirmed=[]
@@ -44,8 +44,8 @@ class Details extends Component{
           deceased[i-31]=posts[i].totaldeceased
           active[i-31]=parseInt(posts[i].totalconfirmed) - parseInt(posts[i].totaldeceased) - parseInt(posts[i].totalrecovered)
         }
-        //console.log(states)
-        // //console.log(num)
+        ////console.log(states)
+        // ////console.log(num)
         this.setState({
         chartData:{
             labels: states
@@ -77,7 +77,7 @@ class Details extends Component{
   
     })
     .catch(error => {
-        //console.log(error)
+        ////console.log(error)
     })
 }
 

@@ -19,9 +19,9 @@ class Comparison extends Component {
     .then(response => {
         const figures=response.data.states_daily
         this.setState({data:response.data.states_daily})
-        console.log(this.state.data)
+        //console.log(this.state.data)
         const data = this.state.data
-  console.log(data)
+  //console.log(data)
   var j=0;
   var dates=[]
   var mah=[],gj=[],dl=[],tn=[],rj=[],mp=[],up=[],wb=[],ap=[],pb=[],tg=[],br=[],jk=[],ka=[],hr=[],or=[],
@@ -32,8 +32,8 @@ class Comparison extends Component {
       
       if(data[i].status=="Confirmed")
       {
-          console.log(figures[i].date)
-          // console.log(figures[i].mh)
+          //console.log(figures[i].date)
+          // //console.log(figures[i].mh)
           dates[j]=data[i].date
           
           
@@ -223,7 +223,7 @@ class Comparison extends Component {
     )
 
     .catch(error => {
-        //console.log(error)
+        ////console.log(error)
     })
     }
 

@@ -19,16 +19,16 @@ class TotalComparison extends Component {
     .then(response => {
         const figures=response.data.states_daily
         this.setState({data:response.data.states_daily})
-        console.log(this.state.data)
+        ////console.log(this.state.data)
         const data = this.state.data
-  console.log(data)
+  ////console.log(data)
   var j=0;
   var dates=[]
   for(var i=0;i<data.length;i++)
   {
       if(data[i].status=="Confirmed")
       {
-          console.log(figures[i].date)
+          ////console.log(figures[i].date)
           dates[j]=data[i].date
           j++        
       }
@@ -66,13 +66,13 @@ class TotalComparison extends Component {
   for(var i=3;i<data.length;i+=3)
   {
           var sum=0
-          console.log(`data[${i}]=${data[i].mh}`)
+          ////console.log(`data[${i}]=${data[i].mh}`)
           for(var k=p;k>=0;k-=3)
           {
           
-            console.log(`data[${k}].mh=${data[k].mh} + sum=${sum}`)
+            ////console.log(`data[${k}].mh=${data[k].mh} + sum=${sum}`)
               sum=sum+Math.abs(data[k].mh)
-             console.log(`Above sum = ${sum}`)
+             ////console.log(`Above sum = ${sum}`)
             
           }
           mah1[ind]=sum
@@ -248,9 +248,9 @@ class TotalComparison extends Component {
           ind++
   }
   
-  console.log(mah)
-  console.log(mah1)
-  console.log(dates)
+  ////console.log(mah)
+  ////console.log(mah1)
+  ////console.log(dates)
 	this.setState({
         chartData:{
 
@@ -404,13 +404,13 @@ class TotalComparison extends Component {
           ]
         }
       });
-        console.log(figures)
-        console.log(figures.length)
+        ////console.log(figures)
+        ////console.log(figures.length)
         var fig=[]
         for(var k=0,j=0;k<figures.length;k++,j++)
         {
-            // console.log(figures[k].date)
-            // console.log(figures[k].status)
+            // ////console.log(figures[k].date)
+            // ////console.log(figures[k].status)
                              
         }
 
@@ -420,26 +420,26 @@ class TotalComparison extends Component {
             
             if(figures[i].status=="Confirmed")
             {
-                console.log(figures[i].date)
-                console.log(figures[i].mh)
+                ////console.log(figures[i].date)
+                ////console.log(figures[i].mh)
 				        fig[j]=figures[i]
                 // delete fig[j].status
 				        // delete fig[j].date
             	  j++             
             }
         }
-    console.log(fig)
+    ////console.log(fig)
     for(var i=0;i<fig.length;i++)
     {
-        console.log(fig[i])
+        ////console.log(fig[i])
   }
-  console.log(mh_date)
+  ////console.log(mh_date)
   var mh=[]
 	for(i=196;i<fig.length;i++)
 	{
     mh[i]=fig[i].mh
 	}
-  console.log(mh)
+  ////console.log(mh)
   for(i=196;i<fig.length;i++)
 	{
 		mh[i]=fig[i].mh
@@ -449,7 +449,7 @@ class TotalComparison extends Component {
     )
 
     .catch(error => {
-        //console.log(error)
+        //////console.log(error)
     })
     }
 

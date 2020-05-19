@@ -25,8 +25,8 @@ class Zones extends Component {
         var a=this.state.value
         // alert('Your input value is: ' + this.state.value)
         this.setState({val:a})
-        console.log(this.state.value)
-        console.log(this.state.val)
+        //console.log(this.state.value)
+        //console.log(this.state.val)
         abc=this.state.value
       }
     }
@@ -41,21 +41,21 @@ class Zones extends Component {
         .then(response => {
             this.setState({zones:response.data.zones})
             
-            console.log(response)
-            console.log(response.data.zones)
-            console.log(this.state.val)
+            //console.log(response)
+            //console.log(response.data.zones)
+            //console.log(this.state.val)
         })
         .catch(error => {
-            //console.log(error)
+            ////console.log(error)
         })
     }
 
     render() {  
-        console.log(this.state.val)
+        //console.log(this.state.val)
         var val=this.state.val
         const zon=this.state.zones
-        console.log(zon)
-        console.log(val)
+        //console.log(zon)
+        //console.log(val)
         const red=[]
         const orange=[]
         const green=[]
@@ -75,9 +75,9 @@ class Zones extends Component {
                 z++;
             }
         }
-        console.log(red)
-        console.log(orange)
-        console.log(green)
+        //console.log(red)
+        //console.log(orange)
+        //console.log(green)
         return (
             <div>
                 <h1 style={{marginLeft:"10px",color:"darkblue",marginTop:"0px"}}>State-wise Red, Orange and Green Zones</h1>
