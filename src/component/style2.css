@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:200');
+
+body {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  height: 100%; 
+}
+
+
+.books11 {
+    display: flex;
+    flex-wrap: wrap;
+    
+  }
+
+  .design{
+    margin-left: 40px;
+    display: inline;
+    color: aqua;
+  }
+
+  .link11 {
+    display: inline;
+    text-decoration:none;
+    color: ivory;
+    text-align: center;
+  }
+  .book11 {
+    
+    position: relative;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 10px;
+    width: 250px;
+    height: 90px;
+    color: tomato;
+    flex-basis: width;
+    /* background-color: rgb(165, 230, 230); */
+    transition: 0.5s;
+    align-content: center;
+    margin-left: 40px;
+    overflow: hidden;
+    
+    -webkit-animation: 1s ease 0s normal forwards 1 fadein;
+    animation: 1s ease 0s normal forwards 1 fadein; 
+    /* background: #060c21; */
+  }
+
+.title11{
+      
+      color: azure;
+      font-size: 30px;
+      margin-top:0px;
+}
+  .head111{
+      margin-top: 0px;
+      margin-left: 350px;
+      color:midnightblue;
+      font-size: 50px ;
+  }
+  .book11:before{
+      content:'';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: #9bdc28;
+      clip-path: circle(150px at 80% 20%);
+      transition: 0.5s ease-in-out;
+      z-index: -1;
+  }
+
+  .book11:hover {
+    height: 280px;  
+    width:270px;
+    
+    /* background: rgb(55,12,131);
+    background: linear-gradient(90deg, rgba(55,12,131,1) 0%, rgba(95,11,231,1) 50%, rgba(64,8,120,1) 100%); */
+    background-color:turquoise;
+  }
+ 
+ 
+
+  .book11:after{
+    content: 'COVID-19';
+    position: absolute;
+    top: 30%;
+    left: -20%;
+    /* right: -2px;
+    bottom: -2px; */
+    /* background: #fff; */
+    font-size: 12em;
+    font-weight: 1000;
+    font-style: italic;
+    color:slateblue;
+    z-index: -2;
+    filter: blur(40px);
+    
+}
+
+  .book11:before,
+  .book11:after{
+    background: blueviolet
+    /* linear-gradient(235deg,#772aff,#010615,#2196f3) */
+  }
+
+  
+
+
+  .book11 h3 {
+    margin-top: 15px;
+    margin-left:25px;
+    font-size: 1rem;
+    opacity: 0.9;
+    box-sizing: border-box;
+    opacity: 0.9;
+    color: azure;
+  }
+
+  .book11 h1 {
+    margin-bottom: 5px;
+    opacity: 1;
+    box-sizing: border-box;
+    margin-left:50px;
+    color: ivory;
+  }
+
+  .book11:hover h3{
+      opacity:1;
+      color: ivory;
+  }
+  
+  .book11:hover h1{
+    opacity:1;
+    color: ivory;
+}
+  .book11:hover h2{
+    opacity:1;
+    color:azure;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+  .book11 h2 {
+    margin-top: 5px;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    color: ivory;
+    margin-left:40px;
+  }
+  
+  
+  .details11 {
+    text-align: center;
+    opacity: 0.9;
+  }
+
+  .details11:hover{
+      color: lavender;
+      opacity: 1;
+  }
+
+  

@@ -1,0 +1,105 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  .text{
+    width: 12em;
+    height: 2em;
+    margin-top:5px;
+    margin-left:100px
+  }
+.button{
+  /* background-color:aquamarine;
+  width: "100px";
+  height: "100px"; */
+  margin-top: 0px;
+  margin-left: 60px;
+    position: relative;
+    border-style: solid;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 8px;
+    width: 90px;
+    height: 40px;
+    text-align: center;
+    color:floralwhite;
+    text-align: center;
+    size: 60px;
+    background-color: dodgerblue;
+    flex-basis: width;
+    /* background-color: rgb(165, 230, 230); */
+    
+    
+    -webkit-animation: 1s ease 0s normal forwards 1 fadein;
+    animation: 1s ease 0s normal forwards 1 fadein; 
+    font-size: 10px;
+    text-decoration: none;
+  margin-left:140px;
+  margin-bottom:30px;
+}
+.books2 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.red{
+  position: relative;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px;
+  width: 185px;
+  height: 90px;
+  background-color: red;
+  color: azure;
+  
+  flex-basis: width;
+  /* background-color: rgb(165, 230, 230); */
+  transition: 0.5s;
+  align-content: center;
+  margin-left: 50px;
+  text-align: center;
+  overflow: hidden;
+  -webkit-animation: 1s ease 0s normal forwards 1 fadein;
+    animation: 1s ease 0s normal forwards 1 fadein; 
+}
+
+.orange{
+  position: relative;
+  text-align: center;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px;
+  width: 185px;
+  height: 90px;
+  color: azure;
+  background-color: orange;
+  flex-basis: width;
+  /* background-color: rgb(165, 230, 230); */
+  transition: 0.5s;
+  align-content: center;
+  margin-left: 50px;
+  overflow: hidden;
+  -webkit-animation: 1s ease 0s normal forwards 1 fadein;
+    animation: 1s ease 0s normal forwards 1 fadein; 
+}
+
+.green{
+  position: relative;
+  text-align: center;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px;
+  width: 185px;
+  height: 90px;
+  color: azure;
+  background-color: green;
+  flex-basis: width;
+  /* background-color: rgb(165, 230, 230); */
+  transition: 0.5s;
+  align-content: center;
+  margin-left: 50px;
+  overflow: hidden;
+  -webkit-animation: 1s ease 0s normal forwards 1 fadein;
+    animation: 1s ease 0s normal forwards 1 fadein; 
+}
