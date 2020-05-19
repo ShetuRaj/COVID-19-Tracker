@@ -24,49 +24,20 @@ class TotalComparison extends Component {
   console.log(data)
   var j=0;
   var dates=[]
-  var mah=[],gj=[],dl=[],tn=[],rj=[],mp=[],up=[],wb=[],ap=[],pb=[],tg=[],br=[],jk=[],ka=[],hr=[],or=[],
-  kl=[],jh=[],ch=[],tr=[],as=[],ut=[],ct=[],hp=[]
-  var sum=0
   for(var i=0;i<data.length;i++)
   {
-      
       if(data[i].status=="Confirmed")
       {
           console.log(figures[i].date)
-          // console.log(figures[i].mh)
           dates[j]=data[i].date
-          
-          
-          mah[j]=Math.abs(data[i].mh)
-          gj[j]=Math.abs(data[i].gj)
-          dl[j]=Math.abs(data[i].dl)
-          tn[j]=Math.abs(data[i].tn)
-          rj[j]=Math.abs(data[i].rj)
-          mp[j]=Math.abs(data[i].mp)
-          up[j]=Math.abs(data[i].up)
-          wb[j]=Math.abs(data[i].wb)
-          ap[j]=Math.abs(data[i].ap)
-          tg[j]=Math.abs(data[i].tg)
-          pb[j]=Math.abs(data[i].pb)
-          br[j]=Math.abs(data[i].br)
-          jk[j]=Math.abs(data[i].jk)
-          ka[j]=Math.abs(data[i].ka)
-          hr[j]=Math.abs(data[i].hr)
-          or[j]=Math.abs(data[i].or)
-          kl[j]=Math.abs(data[i].kl)
-          jh[j]=Math.abs(data[i].jh)
-          ch[j]=Math.abs(data[i].ch)
-          tr[j]=Math.abs(data[i].tr)
-          as[j]=Math.abs(data[i].as)
-          ut[j]=Math.abs(data[i].ut)
-          ct[j]=Math.abs(data[i].ct)
-          hp[j]=Math.abs(data[i].hp)
           j++        
       }
   }
+
   var mah1=[],gj1=[],dl1=[],tn1=[],rj1=[],mp1=[],up1=[],wb1=[],ap1=[],pb1=[],tg1=[],br1=[],jk1=[],ka1=[],hr1=[],or1=[],
   kl1=[],jh1=[],ch1=[],tr1=[],as1=[],ut1=[],ct1=[],hp1=[]
-  mah1[0]=Math.abs(data[0].mh)
+
+          mah1[0]=Math.abs(data[0].mh)
           gj1[0]=Math.abs(data[0].gj)
           dl1[0]=Math.abs(data[0].dl)
           tn1[0]=Math.abs(data[0].tn)
@@ -276,6 +247,7 @@ class TotalComparison extends Component {
           p+=3    
           ind++
   }
+  
   console.log(mah)
   console.log(mah1)
   console.log(dates)
