@@ -28,6 +28,7 @@ class Countries extends Component {
         const {posts} = this.state
         posts.sort((a, b) => (a.TotalConfirmed > b.TotalConfirmed) ? -1 : 1)
         //console.log(posts)
+        console.log()
         
         return (
             <div>

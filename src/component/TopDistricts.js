@@ -80,7 +80,7 @@ class TopDistricts extends Component {
                       //console.log(district);
                     }
                   }
-                 
+          console.log()
         // const dist1=this.state.final;
         // //console.log(dist1)
         // dist1.sort((a, b) => (a.confirmed > b.confirmed) ? -1 : 1)

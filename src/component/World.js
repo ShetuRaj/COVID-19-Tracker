@@ -49,6 +49,7 @@ class World extends Component {
         var obj={"1": 500, "2": 15, "5": 4, "4": 480, "10": 87}
         var confirmed=Object.values(obj)
         //console.log(confirmed)
+        console.log()
         var num=typeof(posts[0])
         // console.log(result)
         // console.log(world)
