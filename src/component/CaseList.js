@@ -22,6 +22,7 @@ class CaseList extends Component {
              samples:0,
              new1:0,
              num:0,
+             num1:0,
              increase:[],
         }
     }
@@ -64,7 +65,9 @@ class CaseList extends Component {
             this.setState({samples:samples})
             var len=total.length
             var tested=total[len-1].totalsamplestested
-            this.setState({num:tested})            
+            var tested1=total[len-2].totalsamplestested
+            this.setState({num:tested})   
+            this.setState({num1:tested1})   
             //////consolelog(total[len-1].totalsamplestested)
         })
         .catch(error => {
@@ -281,6 +284,15 @@ class CaseList extends Component {
         {
             percent=0
         }
+        var tested1=this.state.num1
+        var percent1=((total/tested1)*100)
+        var thousand1=(tested1/(1.4*1000000))
+        if(tested1==0)
+         {
+             percent1=0
+         }
+         var diff=Math.abs(percent-percent1).toFixed(2)
+         var diff1=Math.abs(thousand-thousand1).toFixed(2)
       //////consolelog(percent)
       //////consolelog(tested)
         //////consolelog({states})
@@ -331,7 +343,7 @@ class CaseList extends Component {
                                     <h1><CountUp 
                                           end={posts.confirmed} separator=","
                                           duration={3} delay={1}/>
-                                            <p style={{marginLeft:"50px"}} className="title">Cases <FontAwesomeIcon icon={faBriefcaseMedical} />
+                                            <p style={{marginLeft:"60px"}} className="title">Cases <FontAwesomeIcon icon={faBriefcaseMedical} />
                                             <p style={{marginTop:"8px",marginLeft:"11px"}} className="blink"> (+<CountUp 
                                             end={new1}
                                             duration={5} delay={1}/>)</p></p>
@@ -379,17 +391,23 @@ class CaseList extends Component {
                                         <h1 style={{marginTop:"50px"}}><div style={{marginLeft:"30px"}}><CountUp 
                                           end={percent} decimals="2"
                                           duration={6} delay={1} /> %</div>
-                                            <p className="title">Positivity Rate <FontAwesomeIcon icon={faNotesMedical} /></p>
+                                            <p className="title">Positivity Rate <FontAwesomeIcon icon={faNotesMedical} />
+                                            <p style={{marginTop:"8px",marginLeft:"55px"}} className="blink">(+<CountUp 
+                                            end={diff} decimals="2"
+                                            duration={4} delay={1}/>%)</p></p>
                                         </h1>
                                     </div>
                                     
                                     <div className="gradient-border"  id="box" >
                                         
-                                        <h1 style={{marginTop:"50px"}}><div style={{marginLeft:"95px",marginTop:"20px"}}><CountUp 
-                                          end={thousand}
+                                        <h1 style={{marginTop:"60px"}}><div style={{marginLeft:"55px",marginTop:"20px"}}><CountUp 
+                                          end={thousand} decimals="2"
                                           duration={6} delay={1} /></div>
                                             <p className="title">Number of Tests
-                                            <p className="title" style={{marginLeft:"40px"}}>Per 1000 <FontAwesomeIcon icon={faCheckCircle} /></p></p>
+                                            <p className="title" style={{marginLeft:"40px",marginTop:"0px"}}>Per 1000 <FontAwesomeIcon icon={faCheckCircle} /></p>
+                                            <div style={{marginTop:"-30px",marginLeft:"70px"}} className="blink">(+<CountUp 
+                                            end={diff1} decimals="2"
+                                            duration={4} delay={1}/>)</div></p>
                                             
                                         </h1>
                                     </div>
