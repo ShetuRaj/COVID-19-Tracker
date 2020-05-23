@@ -246,7 +246,7 @@ class TotalComparison extends Component {
 
           datasets:[
             {
-              label:'Mahrashtra',
+              label:'Maharashtra',
               data: mah1,
               fill:false,
               borderColor: 'rgba(242, 38, 19, 1)',
@@ -378,7 +378,7 @@ class TotalComparison extends Component {
               borderColor: 'rgba(249, 105, 14, 1)',
             },
             {
-              label:'Chatttisgarh',
+              label:'Chhattisgarh',
               data: ct1,
               fill:false,
               borderColor: 'rgba(211, 84, 0, 1)',

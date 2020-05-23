@@ -78,7 +78,7 @@ class More2 extends Component {
         var info3=[]
         for(var i=1;i<stdata.length;i++)
         {
-          if(stdata[i].state!="State Unassigned"){
+         
             states[i-1]=stdata[i].state
             info1[i-1]=stdata[i].totaltested
             console.log(stdata[i].state)
@@ -88,7 +88,7 @@ class More2 extends Component {
             info3[i-1].replace('%','')
             info3[i-1]=parseInt(info3[i-1])
             console.log(info3[i-1])
-          }
+          
         }
 
         console.log(states)

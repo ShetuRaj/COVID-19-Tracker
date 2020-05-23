@@ -93,7 +93,7 @@ class New extends Component{
           <br></br>
           <br></br>
           
-        <Line
+        <Bar
           data={this.state.chartData}
           options={{
             title:{

@@ -80,7 +80,7 @@ class Zones extends Component {
         //console.log(green)
         return (
             <div>
-                <h1 style={{marginLeft:"10px",color:"darkblue",marginTop:"0px"}}>State-wise Red, Orange and Green Zones</h1>
+                <h1 style={{marginLeft:"10px",color:"darkblue",marginTop:"0px"}}>State-Wise Red, Orange and Green Zones in India</h1>
                 <h2 style={{marginLeft:"110px"}}>Select State</h2>
                 <form onSubmit={this.addValue}>
                 <select type="text" onChange={this.updateInput} placeholder="Select State" className="text">
@@ -122,7 +122,7 @@ class Zones extends Component {
                 <option value="West Bengal">West Bengal</option>
                 
                 
-                </select>
+                </select> 
                 <br/><br/>
                 <input type="submit" value="Search" className="button"/>
                </form>

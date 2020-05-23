@@ -36,11 +36,13 @@ class Details extends Component{
         
         var confirmed=[]
         var active=[]
+        var recovered=[]
         var deceased=[]
 
         for (var i=31;i<posts.length;i+=1) {
           states[i-31]=posts[i].date
           confirmed[i-31]=posts[i].totalconfirmed
+          recovered[i-31]=posts[i].totalrecovered
           deceased[i-31]=posts[i].totaldeceased
           active[i-31]=parseInt(posts[i].totalconfirmed) - parseInt(posts[i].totaldeceased) - parseInt(posts[i].totalrecovered)
         }
@@ -57,13 +59,19 @@ class Details extends Component{
               label:'Total Confirmed Cases',
               data: confirmed,
               fill:false,
-              borderColor: 'rgba(34, 167, 240, 1)',
+              borderColor: 'rgba(242, 38, 19, 1)',
             },
             {
                 label:'Total Active Cases',
                 data: active,
                 fill:false,
-                borderColor: 'rgba(249, 105, 14, 1)',
+                borderColor: ' rgba(34, 167, 240, 1)',
+              },
+              {
+                label:'Total Recovered Cases',
+                data: recovered,
+                fill:false,
+                borderColor: 'rgba(41, 241, 195, 1)',
               },
               {
                 label:'Total Deaths',
@@ -103,7 +111,7 @@ class Details extends Component{
           options={{
             title:{
               display:this.props.displayTitle,
-              text:'Total Confirmed v/s Active v/s Dead',
+              text:'Total Confirmed v/s Active v/s Recovered v/s Dead',
               fontSize:25
             },
             legend:{
@@ -120,11 +128,11 @@ class Details extends Component{
           <New />
           </div>
 
-        <br></br>
+        {/* <br></br>
         <br></br>
         <div style={{width:1000,marginLeft:"90px"}}>
         <Stats />
-        </div>
+        </div> */}
 
         <br></br>
         <div style={{width:1000,marginLeft:"90px"}}>

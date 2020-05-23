@@ -72,7 +72,7 @@ class Comparison extends Component {
 
           datasets:[
             {
-              label:'Mahrashtra',
+              label:'Maharashtra',
               data: mah,
               fill:false,
               borderColor: 'rgba(242, 38, 19, 1)',
@@ -204,7 +204,7 @@ class Comparison extends Component {
               borderColor: 'rgba(249, 105, 14, 1)',
             },
             {
-              label:'Chatttisgarh',
+              label:'Chhattisgarh',
               data: ct,
               fill:false,
               borderColor: 'rgba(211, 84, 0, 1)',

@@ -31,14 +31,14 @@ class CaseList extends Component {
 
         Axios.get('https://api.covid19india.org/data.json')
         .then(response => {
-            ////console.log(response)
+            //////consolelog(response)
             this.setState({posts:response.data.statewise})
             const extra=response.data.cases_time_series
             
-            // //console.log(new1)
+            // ////consolelog(new1)
             var extra1=response.data.statewise
 
-            // //console.log(new2-new1)
+            // ////consolelog(new2-new1)
             var recov=0,dead=0;
             var new3=extra1[0].confirmed-extra[extra.length-1].totalconfirmed
             if(new3<=100)
@@ -58,17 +58,17 @@ class CaseList extends Component {
             this.setState({recov:recov})
             this.setState({dead:dead})
             
-            ////console.log(response.data.statewise)
+            //////consolelog(response.data.statewise)
             const total = response.data.tested
             var samples=total[total.length-1].totalsamplestested-total[total.length-2].totalsamplestested
             this.setState({samples:samples})
             var len=total.length
             var tested=total[len-1].totalsamplestested
             this.setState({num:tested})            
-            ////console.log(total[len-1].totalsamplestested)
+            //////consolelog(total[len-1].totalsamplestested)
         })
         .catch(error => {
-            ////console.log(error)
+            //////consolelog(error)
         })
 
         Axios.get('https://api.covid19india.org/states_daily.json')
@@ -76,12 +76,20 @@ class CaseList extends Component {
     .then(response => {
         const stdata=this.state.posts
         this.setState({postings:response.data.states_daily})
-        //console.log(response.data.states_daily)
+        ////consolelog(response.data.states_daily)
         const postings = response.data.states_daily
-        //console.log(postings)
+        ////consolelog(postings)
         
         const daily=postings[postings.length-3];
-        //console.log(daily)
+        delete daily.date;
+        delete daily.status
+        const new_recovered=postings[postings.length-2];
+        delete new_recovered.date;
+        delete new_recovered.status
+        const new_dead=postings[postings.length-1];
+        delete new_dead.date;
+        delete new_dead.status
+        //consolelog(new_recovered)
         var sortable = [];
         for (var vehicle in daily) {
             sortable.push([vehicle, daily[vehicle]]);
@@ -91,43 +99,73 @@ class CaseList extends Component {
         sortable.sort(function(a, b) {
         return a[1] - b[1];
         });
-        //console.log(sortable)
-        var increase=[]
+
+        var sortable1 = [];
+        for (var vehicle in new_recovered) {
+            sortable1.push([vehicle, new_recovered[vehicle]]);
+        }
+        
+        
+        sortable1.sort(function(a, b) {
+        return a[1] - b[1];
+        });
+
+        var sortable2 = [];
+        for (var vehicle in new_dead) {
+            sortable2.push([vehicle, new_dead[vehicle]]);
+        }
+        
+        //consolelog(sortable1)
+        sortable2.sort(function(a, b) {
+        return a[1] - b[1];
+        });
+
+        var increase=[],rec=[],dec=[]
         var z=0;
+        var ct=0;
         for(var i=1;i<stdata.length;i++)
         {
-            //console.log(stdata[i].statecode)
+            ////consolelog(stdata[i].statecode)
            for(var j=0;j<sortable.length;j++)
            {
-                // //console.log(daily[j])
+                // ////consolelog(daily[j])
                 if(daily[j]!="tt")
                 {
                     
                     
-                    if(stdata[i].statecode==sortable[j][0].toUpperCase()){
+                    if(stdata[i].statecode==sortable[j][0].toUpperCase())
+                    {
                         increase[z]=sortable[j][1]
+                        rec[z]=sortable1[j][1]
+                        //consolelog(sortable1[j][0]+rec[z])
+                        dec[z]=sortable2[j][1]
                         z++
                     }
                 }
            }
            
         }
-        //console.log(increase)
+        //consolelog(ct)
+        //consolelog(rec)
         this.setState({increase:increase})
         const add=this.state.posts
         var j=0;
         for(var i=1;i<add.length;i++,j++)
         {
             add[i].increase=increase[j]
+            add[i].new_recovered=rec[j]
+            add[i].new_dead=dec[j]
         }
+        
         this.setState({posts:add})
     })
     .catch(error => {
-        ////console.log(error)
+        //////consolelog(error)
     })
     Axios.get('https://api.covid19india.org/state_test_data.json')
     .then(response => {
         this.setState({tested:response.data.states_tested_data})
+        //consolelog(response.data.states_tested_data)
         var tested=response.data.states_tested_data
         const stdata=this.state.posts
         var index=0,index1=0
@@ -140,10 +178,11 @@ class CaseList extends Component {
                 {
                     if(tested[j].totaltested!='' && tested[j].testsperthousand!='' && tested[j].testpositivityrate!='')
                     {
-                        index1=j
-                        continue
+                        index1=j;
+                        continue;
                     }
-                    if(tested[j].totaltested=='' || tested[j].testsperthousand=='' || tested[j].testpositivityrate==''){
+                    if(tested[j].totaltested=='' || tested[j].testsperthousand=='' || tested[j].testpositivityrate=='')
+                    {
                         count++;
                         index=j;
                         break;
@@ -154,11 +193,26 @@ class CaseList extends Component {
             if(count==1)
             {
                         stdata[i].totaltested=tested[index-1].totaltested
+                        // //consolelog(index)
                         
                         stdata[i].testsperthousand=tested[index-1].testsperthousand
                         
                         stdata[i].testpositivityrate=tested[index-1].testpositivityrate
+
+                        stdata[i].totaltestedbefore=tested[index-1].totaltested-tested[index-2].totaltested
                         
+                        stdata[i].testsperthousandbefore=(tested[index-1].testsperthousand-tested[index-2].testsperthousand).toFixed(2)
+                       
+                        stdata[i].testpositivityratebefore=(parseFloat(tested[index-1].testpositivityrate.replace('%',''))-parseFloat(tested[index-2].testpositivityrate.replace('%',''))).toFixed(2)
+                        if(stdata[i].testpositivityratebefore<0)
+                        {
+                            stdata[i].testpositivityratebefore="-"+Math.abs(stdata[i].testpositivityratebefore)
+                        }
+                        else
+                        {
+                            stdata[i].testpositivityratebefore="+"+Math.abs(stdata[i].testpositivityratebefore)
+                        }
+
                         
             }
             if(count==0)
@@ -168,15 +222,32 @@ class CaseList extends Component {
                 stdata[i].testsperthousand=tested[index1].testsperthousand
                 
                 stdata[i].testpositivityrate=tested[index1].testpositivityrate
-                
+                if(stdata[i].state!="Total")
+                {
+                stdata[i].totaltestedbefore=tested[index1].totaltested-tested[index1-1].totaltested
+                                   
+                stdata[i].testsperthousandbefore=(tested[index1].testsperthousand-tested[index1-1].testsperthousand).toFixed(2)
+               
+                stdata[i].testpositivityratebefore=(parseFloat(tested[index1].testpositivityrate.replace('%',''))-parseFloat(tested[index1-1].testpositivityrate.replace('%',''))).toFixed(2)
+
+                if(stdata[i].testpositivityratebefore<0)
+                {
+                            stdata[i].testpositivityratebefore="-"+Math.abs(stdata[i].testpositivityratebefore)
+                }
+                else
+                {
+                            stdata[i].testpositivityratebefore="+"+Math.abs(stdata[i].testpositivityratebefore)
+                }
+
+                }
             }
         }
         this.setState({posts:stdata})
-        //console.log(stdata)
+        //consolelog(this.state.posts)
         
     })
     .catch(error => {
-        ////console.log(error)
+        //////consolelog(error)
     })
 
 
@@ -186,9 +257,9 @@ class CaseList extends Component {
 
     render() {
         const increase = this.state.increase
-        //console.log(increase)
+        ////consolelog(increase)
         const posts = this.state.posts
-        //console.log(posts)
+        ////consolelog(posts)
         var new1=this.state.new1
         var recov=this.state.recov
         var dead=this.state.dead
@@ -197,13 +268,12 @@ class CaseList extends Component {
         var num=[]
         var total=0
         for (var i=1;i<posts.length;i+=1) {
-          ////console.log(posts[i].state);
+          //////consolelog(posts[i].state);
           states[i-1]=posts[i].state
           num[i-1]=posts[i].confirmed
           total=total+parseInt(posts[i].confirmed)
-          
-      }
-      ////console.log(total)
+        }
+      //////consolelog(total)
       var tested=this.state.num
        var percent=((total/tested)*100)
        var thousand=(tested/(1.4*1000000))
@@ -211,10 +281,10 @@ class CaseList extends Component {
         {
             percent=0
         }
-      ////console.log(percent)
-      ////console.log(tested)
-        ////console.log({states})
-        ////console.log({num})
+      //////consolelog(percent)
+      //////consolelog(tested)
+        //////consolelog({states})
+        //////consolelog({num})
         return (
             <div>
                
@@ -235,13 +305,13 @@ class CaseList extends Component {
                                   <h3 style={{color: "azure"}} className="blink">(+{posts.increase})</h3>
                                     <h3 style={{color: "springgreen"}}>Recovered - <CountUp 
                                          end={posts.recovered}
-                                         duration={4} delay={1} /></h3>
+                                         duration={4} delay={1} /> (+{posts.new_recovered})</h3>
                                     <h3 style={{color: "red",marginTop:"0px"}}>Deaths - <CountUp 
                                          end={posts.deaths  }
-                                         duration={4} delay={1} /></h3>
-                                    <h3 style={{color: "orange",marginTop:"0px"}}>Tested - {posts.totaltested}</h3>
-                                    <h3 style={{color: "yellow",marginTop:"0px"}}>Positivity Rate - {posts.testpositivityrate}</h3>
-                                    <h3 style={{color: "snow",marginTop:"0px"}}>Tests Per 1000 - {posts.testsperthousand}</h3>
+                                         duration={4} delay={1} /> (+{posts.new_dead})</h3>
+                                    <h3 style={{color: "orange",marginTop:"0px"}}>Tested - {posts.totaltested} (+{posts.totaltestedbefore})</h3>
+                                    <h3 style={{color: "yellow",marginTop:"0px"}}>Positivity Rate - {posts.testpositivityrate} ({posts.testpositivityratebefore}%)</h3>
+                         <h3 style={{color: "snow",marginTop:"0px"}}>Tests Per 1000 - {posts.testsperthousand} (+{posts.testsperthousandbefore})</h3>
                                     <a style={{display: "table-cell"}}  target="_blank" 
                                 href={`https://www.covid19india.org/state/${posts.statecode}`}
                                 className="link11"> <p className="design1">Click here to See More <FontAwesomeIcon icon={faExternalLinkAlt} /></p></a>

@@ -209,7 +209,7 @@ border-radius: var(--borderWidth);
   }
 
   .book:hover {
-    height: 360px;  
+    height: 400px;  
     width:270px;
     
     background: rgb(55,12,131);
