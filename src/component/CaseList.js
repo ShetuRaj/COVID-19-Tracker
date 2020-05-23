@@ -299,15 +299,15 @@ class CaseList extends Component {
                                   
                                   <h2>{posts.state}</h2>
                                   <h1><CountUp 
-                                         end={posts.confirmed}
+                                         end={posts.confirmed} separator=","
                                          duration={4} delay={1} /></h1>
                                   <div className="details" key={posts.state}>
                                   <h3 style={{color: "azure"}} className="blink">(+{posts.increase})</h3>
                                     <h3 style={{color: "springgreen"}}>Recovered - <CountUp 
-                                         end={posts.recovered}
+                                         end={posts.recovered} separator=","
                                          duration={4} delay={1} /> (+{posts.new_recovered})</h3>
                                     <h3 style={{color: "red",marginTop:"0px"}}>Deaths - <CountUp 
-                                         end={posts.deaths  }
+                                         end={posts.deaths} separator=","
                                          duration={4} delay={1} /> (+{posts.new_dead})</h3>
                                     <h3 style={{color: "orange",marginTop:"0px"}}>Tested - {posts.totaltested} (+{posts.totaltestedbefore})</h3>
                                     <h3 style={{color: "yellow",marginTop:"0px"}}>Positivity Rate - {posts.testpositivityrate} ({posts.testpositivityratebefore}%)</h3>
@@ -329,7 +329,7 @@ class CaseList extends Component {
                                     
                                     <div className="gradient-border" id="box">
                                     <h1><CountUp 
-                                          end={posts.confirmed}
+                                          end={posts.confirmed} separator=","
                                           duration={3} delay={1}/>
                                             <p style={{marginLeft:"50px"}} className="title">Cases <FontAwesomeIcon icon={faBriefcaseMedical} />
                                             <p style={{marginTop:"8px",marginLeft:"11px"}} className="blink"> (+<CountUp 
@@ -344,7 +344,7 @@ class CaseList extends Component {
                                     <div className="gradient-border" id="box">
                                         
                                         <h1><CountUp 
-                                          end={posts.recovered}
+                                          end={posts.recovered} separator=","
                                           duration={3} delay={1} />
                                             <p style={{marginLeft:"25px"}}className="title">Recovered <FontAwesomeIcon icon={faUsers} />
                                             <p style={{marginTop:"8px",marginLeft:"45px"}} className="blink">(+<CountUp 
@@ -355,7 +355,7 @@ class CaseList extends Component {
                 
                                     <div className="gradient-border" id="box">
                                         <h1><CountUp 
-                                          end={posts.deaths }
+                                          end={posts.deaths } separator=","
                                           duration={3} delay={1} />
                                             <p style={{marginLeft:"40px"}} className="title">Dead <FontAwesomeIcon icon={faSkullCrossbones} />
                                             <p style={{marginTop:"8px",marginLeft:"13px"}} className="blink">(+<CountUp 
@@ -366,7 +366,7 @@ class CaseList extends Component {
 
                                     <div className="gradient-border1" id="box1">
                                         <h1><CountUp 
-                                          end={tested}
+                                          end={tested} separator=","
                                           duration={3} delay={1} />
                                             <p style={{marginLeft:"60px"}} className="title">Tested <FontAwesomeIcon icon={faVial} />
                                             <p style={{marginTop:"8px",marginLeft:"06px"}} className="blink">(+<CountUp 
@@ -376,8 +376,8 @@ class CaseList extends Component {
                                     </div>
 
                                     <div className="gradient-border"  id="box">
-                                        <h1 style={{marginTop:"50px"}}><div style={{marginLeft:"60px"}}><CountUp 
-                                          end={percent}
+                                        <h1 style={{marginTop:"50px"}}><div style={{marginLeft:"30px"}}><CountUp 
+                                          end={percent} decimals="2"
                                           duration={6} delay={1} /> %</div>
                                             <p className="title">Positivity Rate <FontAwesomeIcon icon={faNotesMedical} /></p>
                                         </h1>
@@ -385,7 +385,7 @@ class CaseList extends Component {
                                     
                                     <div className="gradient-border"  id="box" >
                                         
-                                        <h1 style={{marginTop:"50px"}}><div style={{marginLeft:"85px",marginTop:"20px"}}><CountUp 
+                                        <h1 style={{marginTop:"50px"}}><div style={{marginLeft:"95px",marginTop:"20px"}}><CountUp 
                                           end={thousand}
                                           duration={6} delay={1} /></div>
                                             <p className="title">Number of Tests

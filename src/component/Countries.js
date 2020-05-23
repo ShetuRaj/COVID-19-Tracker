@@ -44,14 +44,14 @@ class Countries extends Component {
                             
                          <h2>{ind+1}. {posts.Country} </h2>
                          <h1><CountUp 
-                                end={posts.TotalConfirmed}
+                                end={posts.TotalConfirmed} separator=","
                                 duration={4} delay={1} /></h1>
                          <div className="details11" key={posts.Country}>
                            <h3 style={{color: "springgreen"}}>Recovered - <CountUp 
-                                end={posts.TotalRecovered}
+                                end={posts.TotalRecovered} separator=","
                                 duration={4} delay={1} /></h3>
                            <h3 style={{color: "red", marginLeft:"10px"}}>Deaths - <CountUp 
-                                end={posts.TotalDeaths}
+                                end={posts.TotalDeaths} separator=","
                                 duration={4} delay={1} /></h3>
                                 <a style={{display: "table-cell"}}  target="_blank" 
                                 href={`https://www.worldometers.info/coronavirus/country/${(posts.Country).toLowerCase()}/`} 

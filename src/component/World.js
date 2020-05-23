@@ -60,7 +60,7 @@ class World extends Component {
                 <div className="first" >
                                     
                                     <div className="gradient-border" id="box" key={posts.TotalConfirmed}>
-                                    <h2><CountUp end={posts.TotalConfirmed} start={0} duration={4}/>
+                                    <h2><CountUp end={posts.TotalConfirmed} separator="," start={0} duration={4}/>
   
                                           
                                             <p className="title" style={{marginLeft:"50px"}}>Cases <FontAwesomeIcon icon={faBriefcaseMedical} /></p>
@@ -73,7 +73,7 @@ class World extends Component {
                                     <div className="gradient-border" id="box" key={posts.TotalConfirmed}>
                                         
                                         <h2><CountUp 
-                                          end={posts.TotalRecovered} start={0} duration={4}
+                                          end={posts.TotalRecovered} start={0} separator="," duration={4}
                                          />
                                             <p className="title" style={{marginLeft:"25px"}}>Recovered <FontAwesomeIcon icon={faUsers} /></p>
                                             
@@ -82,7 +82,7 @@ class World extends Component {
                 
                                     <div className="gradient-border" id="box" key={posts.TotalConfirmed}>
                                         <h2><CountUp 
-                                          end={posts.TotalDeaths}
+                                          end={posts.TotalDeaths} separator=","
                                           start={0} duration={4}/>
                                             <p className="title" style={{marginLeft:"40px"}}>Dead <FontAwesomeIcon icon={faSkullCrossbones} /></p>
                                             

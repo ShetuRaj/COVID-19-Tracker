@@ -121,14 +121,14 @@ class TopDistricts extends Component {
                          <h2>{ind+1}. {dist.district}</h2>
                          <h3>({dist.state})</h3>
                          <h1 style={{color: "azure"}}><CountUp 
-                                end={dist.confirmed}
+                                end={dist.confirmed} separator=","
                                 duration={4} delay={1} /></h1>
                          <div className="details1" key={dist.district}>
                            <h4 style={{color: "springgreen"}}>Recovered - <CountUp 
-                                end={dist.recovered}
+                                end={dist.recovered} separator=","
                                 duration={4} delay={1} /></h4>
                            <h4 style={{color: "red"}}> Deaths - <CountUp 
-                                end={dist.deceased}
+                                end={dist.deceased} separator=","
                                 duration={4} delay={1} /></h4>
                             
                            
