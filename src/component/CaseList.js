@@ -345,7 +345,7 @@ class CaseList extends Component {
                                           duration={3} delay={1}/>
                                             <p style={{marginLeft:"60px"}} className="title">Cases <FontAwesomeIcon icon={faBriefcaseMedical} />
                                             <p style={{marginTop:"8px",marginLeft:"11px"}} className="blink"> (+<CountUp 
-                                            end={new1}
+                                            end={new1} separator=","
                                             duration={5} delay={1}/>)</p></p>
                                            
                                     </h1>
@@ -360,7 +360,7 @@ class CaseList extends Component {
                                           duration={3} delay={1} />
                                             <p style={{marginLeft:"25px"}}className="title">Recovered <FontAwesomeIcon icon={faUsers} />
                                             <p style={{marginTop:"8px",marginLeft:"45px"}} className="blink">(+<CountUp 
-                                            end={recov}
+                                            end={recov} separator=","
                                             duration={5} delay={1}/>)</p></p>
                                         </h1>
                                     </div>
@@ -371,7 +371,7 @@ class CaseList extends Component {
                                           duration={3} delay={1} />
                                             <p style={{marginLeft:"40px"}} className="title">Dead <FontAwesomeIcon icon={faSkullCrossbones} />
                                             <p style={{marginTop:"8px",marginLeft:"13px"}} className="blink">(+<CountUp 
-                                            end={dead}
+                                            end={dead} separator=","
                                             duration={10} delay={1}/>)</p></p>
                                         </h1>
                                     </div>
@@ -382,7 +382,7 @@ class CaseList extends Component {
                                           duration={3} delay={1} />
                                             <p style={{marginLeft:"60px"}} className="title">Tested <FontAwesomeIcon icon={faVial} />
                                             <p style={{marginTop:"8px",marginLeft:"06px"}} className="blink">(+<CountUp 
-                                            end={samples}
+                                            end={samples} separator=","
                                             duration={4} delay={1}/>)</p></p>
                                         </h1>
                                     </div>
