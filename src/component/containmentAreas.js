@@ -76,7 +76,8 @@ class Zones extends Component {
             }
         }
         //console.log(red)
-        
+        //console.log(orange)
+        //console.log(green)
         return (
             <div>
                 <h1 style={{marginLeft:"10px",color:"darkblue",marginTop:"0px"}}>State-Wise Red, Orange and Green Zones in India</h1>
@@ -93,7 +94,7 @@ class Zones extends Component {
                 <option value="Delhi">Delhi</option>
                 <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
                 <option value="Goa">Goa</option>
-				<option value="Gujarat">Gujarat</option>
+                <option value="Gujarat">Gujarat</option>
                 <option value="Haryana">Haryana</option>
                 <option value="Himachal Pradesh">Himachal Pradesh</option>
                 <option value="Jammu and Kashmir">Jammu and Kashmir</option>
@@ -119,6 +120,8 @@ class Zones extends Component {
                 <option value="Uttar Pradesh">Uttar Pradesh</option>
                 <option value="Uttarakhand">Uttarakhand</option>
                 <option value="West Bengal">West Bengal</option>
+               
+               
                 </select>
                 <br/><br/>
                 <input type="submit" value="Search" className="button"/>
